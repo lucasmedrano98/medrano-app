@@ -2,14 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from './basketlogo.png'
+import CartWidget from './CartWidget'
 
 const Navbar1 = () => {
   return (
     <>
-          <Navbar bg="secondary" variant="dark">
+      <Navbar bg="secondary" variant="dark">
         <Container>
-          <Navbar.Brand href="#home"><img src={logo} alt="Logo" width={50}/></Navbar.Brand>
+          <Navbar.Brand href="#home">Basket <img src="/assets/imagenes/basketlogo.png" alt="Logo" width={50}/> Store</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Inicio</Nav.Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
@@ -17,6 +17,7 @@ const Navbar1 = () => {
               <NavDropdown.Item href="#action/3.2">Indumentaria</NavDropdown.Item>
             </NavDropdown>
           </Nav>
+          <CartWidget/>
         </Container>
       </Navbar>
     </>

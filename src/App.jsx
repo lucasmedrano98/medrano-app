@@ -1,14 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar1 from './components/Navbar/Navbar.jsx';
+import Navbar1 from './components/Navbar/Navbar';
+import ItemContainer from './components/itemContainer/ItemContainer.jsx'
 
 function App() {
   return (
     <div className="App">
       <Navbar1/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+      <ItemContainer/>
     </div>
   );
 }
