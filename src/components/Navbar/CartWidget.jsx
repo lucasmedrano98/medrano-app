@@ -1,9 +1,9 @@
-const CartWidget = () => {
+const CartWidget = ({carritoLength}) => {
     
     return (
       <div className="cart-widget">
-        <img src="/assets/imagenes/carrito-de-compras2.png" alt="Logo" width={50}/>
-        <div className="qty-display">0</div>
+        <button type="button"><img src="/assets/imagenes/carrito-de-compras2.png" alt="Logo" width={50}/></button>
+        <span>{carritoLength}</span>
       </div>
     );
   };

@@ -1,11 +1,23 @@
+import { useEffect } from "react";
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const ItemContainer = (productos) => {
-  return (
-    <div>
-      {productos.map((producto) => {
+const ItemListContainer = () => {
+    const [productos, setProductos] = useState ([])
+    
+     const buscarProductos = async () => {
+         const response = await fetch ('https://api.mercadolibre.com/sites/MLA/search?q=camisetasbasquet')
+        const data = await response.json();
+        setProductos(data.results); 
+    }
+        useEffect(() => {
+            buscarProductos()
+        },[])
+        return (
+            <div>
+                {productos.map((producto) => {
                     return(<Card style={{ width: '18rem', margin: '2rem', display:'inline-block' }}>
                     <Card.Img variant="top" src={producto.thumbnail} />
                     <Card.Body>
@@ -20,9 +32,11 @@ const ItemContainer = (productos) => {
                     </Card.Body>
                   </Card>
                     )
-                })} 
-    </div> 
-  )
-}
+                })}
+            </div>    
+        
+        )
+    }
 
-export default ItemContainer;
+
+export default ItemListContainer

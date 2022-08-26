@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from './CartWidget'
 
-const Navbar1 = () => {
+const Navbar1 = (carritoLength) => {
   return (
     <>
       <Navbar bg="secondary" variant="dark">
