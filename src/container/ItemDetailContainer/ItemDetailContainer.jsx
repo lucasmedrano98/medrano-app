@@ -1,29 +1,26 @@
 import { useEffect } from "react";
 import { useState } from 'react';
+import { useParams } from "react-router-dom";
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 
 const ItemDetailContainer = () => {
-    const [productos, setProductos] = useState ([])
+    const [producto, setProducto] = useState ([])
+    const {idProduct} = useParams();
     
-     const buscarProductos = async () => {
-         const response = await fetch ('https://api.mercadolibre.com/sites/MLA/search?q=camisetasbasquet')
+     const buscarProducto = async () => {
+         const response = await fetch (`https://api.mercadolibre.com/items/${idProduct}`)
         const data = await response.json();
-        setProductos(data.results); 
+        setProducto(data.results); 
     }
         useEffect(() => {
-            buscarProductos()
-        },[])
-        
-        // const producto = productos.find(obj => {
-        //     return obj.id === "MLA914182494";
-        //   });
-          
-        //   console.log(producto);
-
-        return (<></>
-        // <ItemDetail producto={producto}/>
+            buscarProducto();
+        },[]);
+        return (<>
+        <ItemDetail producto={producto}/>
+        </>
         )
     }
 
 
 export default ItemDetailContainer
+
