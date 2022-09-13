@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Link } from "react-router-dom";
 
 const Item = ({ producto, setCarrito, carrito }) => {
   return (
@@ -21,6 +22,7 @@ const Item = ({ producto, setCarrito, carrito }) => {
         >
           Agregar al carrito
         </Button>
+        <Link to={`/producto/${producto.id}`}>Ver detalles</Link>
       </Card.Body>
     </Card>
   );

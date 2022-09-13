@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
      const buscarProducto = async () => {
          const response = await fetch (`https://api.mercadolibre.com/items/${idProduct}`)
         const data = await response.json();
-        setProducto(data.results); 
+        setProducto(data); 
     }
         useEffect(() => {
             buscarProducto();
