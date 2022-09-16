@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
 import CartWidget from './CartWidget'
 
-const Navbar1 = (carritoLength) => {
+const Navbar1 = () => {
   return (
     <>
       <Navbar bg="secondary" variant="dark">

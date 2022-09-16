@@ -1,23 +1,22 @@
 import "./App.css";
 import Navbar1 from "./components/Navbar/Navbar";
-import { useState } from "react";
 import ItemListContainer from "./container/itemListContainer/itemListContainer.jsx";
 import ItemDetailContainer from "./container/ItemDetailContainer/ItemDetailContainer";
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import CarritoProvider from "./context/CarritoContext";
 
 function App() {
-  const [carrito, setCarrito] = useState([]);
-  return (
-          <>
+  return (          
           <BrowserRouter>
+          <CarritoProvider>
           <Navbar1/>
           <Routes>
-            <Route path="/" element={<ItemListContainer setCarrito={setCarrito} carrito={carrito}/>}/>
+            <Route path="/" element={<ItemListContainer/>}/>
             <Route path="/categoria/:idCategoria" element={<ItemListContainer/>}/>
             <Route path="/producto/:idProduct" element={<ItemDetailContainer/>}/>
           </Routes>
+          </CarritoProvider>
           </BrowserRouter>
-          </>
   );
 }
 
