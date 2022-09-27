@@ -1,9 +1,16 @@
+import { useCarritoContext } from "../context/CarritoContext"
+import Button from "react-bootstrap/Button";
+
 const ItemCart = ({producto}) => {
+    const {removerProducto} = useCarritoContext()
     return (
         <div>
-            <h3>{producto.title}</h3>
-            <h3>${producto.price}</h3>
-            <h3>{producto.quantity}</h3>         
+            <img src={producto.thumbnail} style={{width:"150px"}}/>
+            <h3>Titulo: {producto.title}</h3>
+            <h3>Precio: ${producto.price}</h3>
+            <h3>Cantidad: {producto.quantity}</h3> 
+            <h3>Subtotal: ${producto.price * producto.quantity} </h3>    
+            <Button onClick={()=>removerProducto(producto.id)}>Remover producto</Button>    
                
         </div>
     )

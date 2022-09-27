@@ -15,7 +15,7 @@ const Cart = () => {
     return (<div>
       <h1>Carrito</h1>
       <div>{carrito.map((producto) => <ItemCart key={producto.id} producto={producto}></ItemCart>)}</div>
-      <h2>{totalPrice}</h2>
+      <h2>Total: ${totalPrice()}</h2>
       </div>
     );
   };
