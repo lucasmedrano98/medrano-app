@@ -1,4 +1,4 @@
-import Item from '../../components/Item/Item'
+import Item from '../components/Item'
 
 const ItemContainer = ({productos, setCarrito, carrito}) => {
   return (

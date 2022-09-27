@@ -1,6 +1,5 @@
-
-import { useCarritoContext } from "../../context/CarritoContext";
-import ItemCount from "../Item/ItemCount";
+import { useCarritoContext } from "../context/CarritoContext";
+import ItemCount from "./ItemCount";
 
 const ItemDetail = ({producto}) => {
     const {addProducto} = useCarritoContext();

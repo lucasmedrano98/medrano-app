@@ -18,12 +18,15 @@ const CarritoProvider = ({children}) => {
      newCart.push({...item, quantity: newQuantity})
      setCarrito(newCart);
      console.log(carrito);
+  }
 
+    const totalPrice = () => {
+        return carrito.reduce((prev, act) => prev + act.quantity * act.price, 0);
     }
 
     return(
         <CarritoContext.Provider value={{
-            clearCarrito,isInCart,removerProducto, addProducto
+            clearCarrito,isInCart,removerProducto, addProducto, carrito, totalPrice
         }}>
             {children}
         </CarritoContext.Provider>

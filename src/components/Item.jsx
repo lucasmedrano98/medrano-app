@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
-import { useCarritoContext } from "../../context/CarritoContext";
+import { useCarritoContext } from "../context/CarritoContext";
 
 
 const Item = ({producto}) => {
