@@ -1,22 +1,23 @@
 import React, {useState} from "react";
+import Button from "react-bootstrap/Button";
 
 const ItemCount = ({onAdd}) => {
 const [count, setCount] = useState(1);
 
 const decrease = () =>   {
-    setCount(-1);
+    setCount(count - 1);
 }
 
 const increase = () =>   {
-    setCount(+1);
+    setCount(count + 1);
 };
 
 return (
     <div>
-        <button disabled={count <= 1} onClick={decrease}>-</button>
+        <Button disabled={count <= 1} onClick={decrease}>-</Button>
         <span>{count}</span>
-        <button onClick={increase}>+</button>
-        <button onClick={() => onAdd(count)}>Agregar al carrito</button>
+        <Button onClick={increase}>+</Button>
+        <Button onClick={() => onAdd(count)}>Agregar al carrito</Button>
     </div>
 );
 }

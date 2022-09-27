@@ -1,6 +1,8 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 
-const CarritoContext = React.createContext();
+const CarritoContext = React.createContext([]);
+
+export const useCarritoContext = () => useContext(CarritoContext)
 
 const CarritoProvider = ({children}) => {
     const [carrito, setCarrito] = useState([]);
@@ -29,4 +31,4 @@ const CarritoProvider = ({children}) => {
 
 }
 
-export default {CarritoProvider,CarritoContext}
+export default CarritoProvider

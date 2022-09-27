@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import CarritoContext from "../../context/CarritoContext";
+
+import { useCarritoContext } from "../../context/CarritoContext";
 import ItemCount from "../Item/ItemCount";
 
 const ItemDetail = ({producto}) => {
-    const {addProducto} = useContext(CarritoContext);
+    const {addProducto} = useCarritoContext();
 
     const onAdd = (quantity) => {
-        addProducto(producto,quantity)
+        addProducto(producto, quantity);
     }
 
     return (

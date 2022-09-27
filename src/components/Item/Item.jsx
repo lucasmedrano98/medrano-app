@@ -1,10 +1,16 @@
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
+import { useCarritoContext } from "../../context/CarritoContext";
 
-const Item = ({ producto, setCarrito, carrito }) => {
+
+const Item = ({producto}) => {
+  const {addProducto} = useCarritoContext();
+
+  const onAdd = (quantity) => {
+      addProducto(producto, quantity);
+  }
   return (
     <Card style={{ width: "18rem", margin: "2rem", display: "inline-block" }}>
       <Card.Img variant="top" src={producto.thumbnail} />
@@ -15,16 +21,7 @@ const Item = ({ producto, setCarrito, carrito }) => {
           <ListGroup.Item>${producto.price}</ListGroup.Item>
           <ListGroup.Item>Talles S/M/L</ListGroup.Item>
         </ListGroup>
-        <ItemCount/>
-        <Button
-          onClick={() => {
-            setCarrito([...carrito, producto.title]);
-            console.log(carrito);
-          }}
-          variant="primary"
-        >
-          Agregar al carrito
-        </Button>
+        <ItemCount onAdd={onAdd}/>
         <Link to={`/producto/${producto.id}`}>Ver detalles</Link>
       </Card.Body>
     </Card>
