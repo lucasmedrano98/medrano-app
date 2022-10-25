@@ -5,7 +5,7 @@ const ItemCart = ({producto}) => {
     const {removerProducto} = useCarritoContext()
     return (
         <div>
-            <img src={producto.thumbnail} style={{width:"150px"}}/>
+            <img src={producto.imageId} style={{width:"150px"}} alt="Item"/>
             <h3>Titulo: {producto.title}</h3>
             <h3>Precio: ${producto.price}</h3>
             <h3>Cantidad: {producto.quantity}</h3> 

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import { useCarritoContext } from "../context/CarritoContext";
 
-
 const Item = ({producto}) => {
   const {addProducto} = useCarritoContext();
 
@@ -13,7 +12,7 @@ const Item = ({producto}) => {
   }
   return (
     <Card style={{ width: "18rem", margin: "2rem", display: "inline-block" }}>
-      <Card.Img variant="top" src={producto.thumbnail} />
+      <Link to={`/producto/${producto.id}`}><Card.Img variant="top" src={producto.imageId} /></Link>
       <Card.Body>
         <Card.Title>{producto.title}.</Card.Title>
         <Card.Text></Card.Text>
